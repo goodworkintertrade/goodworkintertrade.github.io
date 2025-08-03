@@ -10,8 +10,34 @@
   <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Optional small custom styles -->
+  <!-- Brand color variables and helpers -->
   <style>
+    :root {
+      --brand: #7a1f2f;         /* maroon-ish primary */
+      --brand-dark: #5c1722;    /* darker hover */
+      --brand-light: #f3e8ed;   /* light background tint */
+      --text-on-brand: #ffffff;
+    }
+    .btn-brand {
+      background-color: var(--brand);
+      color: var(--text-on-brand);
+    }
+    .btn-brand:hover {
+      background-color: var(--brand-dark);
+    }
+    .link-brand {
+      color: var(--brand);
+    }
+    .link-brand:hover {
+      color: var(--brand-dark);
+      text-decoration: underline;
+    }
+    .accent-border {
+      border-left: 4px solid var(--brand);
+    }
+    .brand-bg-light {
+      background-color: var(--brand-light);
+    }
     .brand-badge {
       min-width: 120px;
     }
@@ -26,36 +52,84 @@
   <!-- Header -->
   <header class="bg-white shadow-sm">
     <div class="max-w-5xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-        <div>
+      <div>
         <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">Good Work Intertrade</h1>
         <p class="text-base uppercase tracking-widest font-semibold mt-1 text-gray-600">
-            Innovation · Perfection · Quality
+          Innovation · Perfection · Quality
         </p>
-        <p class="mt-3 text-lg text-gray-700 font-medium">
-            CEO: <span class="font-bold">Arabinda Ghosh</span>
-        </p>
-        </div>
-        <nav class="flex gap-8 text-lg font-semibold">
-        <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
-        <a href="#brands" class="hover:text-blue-600 transition-colors">Brands</a>
-        <a href="#offices" class="hover:text-blue-600 transition-colors">Offices</a>
-        <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
-        </nav>
+        
+      </div>
+      <nav class="flex gap-8 text-lg font-semibold">
+        <a href="#services" class="link-brand transition-colors">Services</a>
+        <a href="#brands" class="link-brand transition-colors">Brands</a>
+        <a href="#offices" class="link-brand transition-colors">Offices</a>
+        <a href="#contact" class="link-brand transition-colors">Contact</a>
+      </nav>
     </div>
-</header>
+  </header>
 
   <!-- Hero -->
-  <section class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16">
+  <section class="bg-gradient-to-r from-rose-800 to-red-900 text-white py-16">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-extrabold mb-3">Good Work Intertrade</h2>
       <p class="text-xl mb-4">Innovation · Perfection · Quality</p>
-      <p class="max-w-2xl mx-auto">Corporate reach across Dhaka with trusted brands and a commitment to excellence. Serving with integrity from multiple strategic locations.</p>
+      <p class="max-w-2xl mx-auto">
+        Corporate reach across Dhaka with trusted brands and a commitment to excellence. Serving with integrity from multiple strategic locations.
+      </p>
       <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#contact" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded shadow">Get In Touch</a>
-        <a href="#offices" class="border border-white px-6 py-3 rounded hover:bg-white hover:text-blue-600 transition">Our Locations</a>
+        <a href="#contact" class="btn-brand font-semibold px-6 py-3 rounded shadow">Get In Touch</a>
+        <a href="#offices" class="border border-white px-6 py-3 rounded hover:bg-white hover:text-[var(--brand)] transition">Our Locations</a>
       </div>
     </div>
   </section>
+
+  <!-- About / Video Section -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-16 grid gap-12 md:grid-cols-2 items-start">
+    <!-- Video -->
+    <div class="order-2 md:order-1">
+      <h3 class="text-2xl font-semibold mb-4">About Good Work Intertrade</h3>
+      <div class="relative rounded shadow-lg overflow-hidden" style="padding-top:56.25%;">
+        <video 
+          controls 
+          preload="metadata" 
+          poster="assets/images/video-thumbnail.jpg" 
+          class="absolute inset-0 w-full h-full object-cover rounded">
+          <source src="assets/videos/business.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <p class="text-sm text-gray-600 mt-3">
+        Learn more about our commitment to <strong>Innovation · Perfection · Quality</strong>.
+      </p>
+    </div>
+
+    <!-- CEO Message -->
+    <div class="order-1 md:order-2">
+    <div class="bg-white accent-border p-6 rounded shadow-md h-full flex flex-col">
+        <div class="flex items-start gap-4">
+        <!-- CEO photo -->
+        <div class="flex-shrink-0">
+            <img 
+            src="assets/images/ceo.png" 
+            alt="Arabinda Ghosh, CEO of Good Work Intertrade" 
+            class="w-24 h-24 rounded-full object-cover border-2 border-[var(--brand)]"
+            onerror="this.onerror=null; this.src='assets/images/placeholder-avatar.png';"
+            />
+        </div>
+        <div>
+            <h3 class="text-2xl font-semibold mb-2">Message from the CEO</h3>
+            <p class="mb-4"><strong>Dear Honorable Customers,</strong></p>
+            <p class="mb-2">Good day, and thank you for your support.</p>
+            <p class="mb-2">
+            We at <strong>Good Work Intertrade</strong> are a growing garments machinery indenting company, committed to supplying high-quality machinery and delivering the best service support to our esteemed partners in the apparel industry.
+            </p>
+            <p class="mt-6 font-medium">— Arabinda Ghosh, CEO</p>
+        </div>
+        </div>
+        </div>
+    </div>
+
+    </section>
 
   <!-- Services (placeholder / showcase) -->
   <section id="services" class="max-w-5xl mx-auto px-6 py-16">
@@ -77,135 +151,123 @@
   </section>
 
   <!-- Brands -->
-  <!-- <section id="brands" class="bg-gray-100 py-16">
+  <section id="brands" class="bg-gray-100 py-16">
     <div class="max-w-5xl mx-auto px-6">
       <h3 class="text-2xl font-semibold mb-6 text-center">Our Brands</h3>
       <div class="flex flex-wrap gap-4 justify-center">
-        <div class="brand-badge p-4 bg-white rounded shadow text-center font-medium">HASHIMA</div>
-        <div class="brand-badge p-4 bg-white rounded shadow text-center font-medium">Brother</div>
-        <div class="brand-badge p-4 bg-white rounded shadow text-center font-medium">PEGASUS</div>
-        <div class="brand-badge p-4 bg-white rounded shadow text-center font-medium">Eastman</div>
-        <div class="brand-badge p-4 bg-white rounded shadow text-center font-medium">JLIKI</div>
-        <div class="brand-badge p-4 bg-white rounded shadow text-center font-medium">KANSA</div>
-        <div class="brand-badge p-4 bg-white rounded shadow text-center font-medium">H&amp;H</div>
+        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[160px] h-[100px]">
+          <img src="assets/images/brands/hashima.jpg" alt="HASHIMA" class="max-h-[90px] max-w-[160px] object-contain">
+        </div>
+        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[160px] h-[100px]">
+          <img src="assets/images/brands/brother.png" alt="Brother" class="max-h-[90px] max-w-[160px] object-contain">
+        </div>
+        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[160px] h-[100px]">
+          <img src="assets/images/brands/pegasus.png" alt="PEGASUS" class="max-h-[90px] max-w-[160px] object-contain">
+        </div>
+        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[160px] h-[100px]">
+          <img src="assets/images/brands/eastman.jpg" alt="Eastman" class="max-h-[90px] max-w-[160px] object-contain">
+        </div>
+        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[160px] h-[100px]">
+          <img src="assets/images/brands/juki.jpeg" alt="JUKI" class="max-h-[90px] max-w-[160px] object-contain">
+        </div>
+        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[160px] h-[100px]">
+          <img src="assets/images/brands/kansa.png" alt="KANSA" class="max-h-[90px] max-w-[160px] object-contain">
+        </div>
+        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[160px] h-[100px]">
+          <img src="assets/images/brands/hnh.jpeg" alt="H&H" class="max-h-[90px] max-w-[160px] object-contain">
+        </div>
+        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[160px] h-[100px]">
+          <img src="assets/images/brands/ns.jpeg" alt="NGAI SHING DEVELOPMENT LIMITED" class="max-h-[90px] max-w-[160px] object-contain">
+        </div>
+        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[160px] h-[100px]">
+          <img src="assets/images/brands/km.jpeg" alt="km" class="max-h-[90px] max-w-[160px] object-contain">
+        </div>
       </div>
     </div>
-  </section> -->
-  <!-- Brands -->
-    <section id="brands" class="bg-gray-100 py-16">
-    <div class="max-w-5xl mx-auto px-6">
-        <h3 class="text-2xl font-semibold mb-6 text-center">Our Brands</h3>
-        <div class="flex flex-wrap gap-4 justify-center">
-        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[140px] h-[80px]">
-            <img src="assets/images/brands/hashima.jpg" alt="HASHIMA" class="max-h-[60px] max-w-[120px] object-contain">
-        </div>
-        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[140px] h-[80px]">
-            <img src="assets/images/brands/brother.png" alt="Brother" class="max-h-[60px] max-w-[120px] object-contain">
-        </div>
-        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[140px] h-[80px]">
-            <img src="assets/images/brands/pegasus.jpg" alt="PEGASUS" class="max-h-[60px] max-w-[120px] object-contain">
-        </div>
-        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[140px] h-[80px]">
-            <img src="assets/images/brands/eastman.jpg" alt="Eastman" class="max-h-[60px] max-w-[120px] object-contain">
-        </div>
-        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[140px] h-[80px]">
-            <img src="assets/images/brands/jliki.png" alt="JLIKI" class="max-h-[60px] max-w-[120px] object-contain">
-        </div>
-        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[140px] h-[80px]">
-            <img src="assets/images/brands/kansa.png" alt="KANSA" class="max-h-[60px] max-w-[120px] object-contain">
-        </div>
-        <div class="brand-badge p-4 bg-white rounded shadow flex items-center justify-center w-[140px] h-[80px]">
-            <img src="assets/images/brands/hnh.jpg" alt="H&H" class="max-h-[60px] max-w-[120px] object-contain">
-        </div>
-        </div>
-    </div>
-    </section>
-
+  </section>
 
   <!-- Offices -->
   <section id="offices" class="max-w-5xl mx-auto px-6 py-16">
-  <h3 class="text-2xl font-semibold mb-6">Our Offices</h3>
-  <div class="grid gap-10 md:grid-cols-2">
-    <div class="office-card bg-white p-6 rounded shadow transition duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-green-50">
-      <h4 class="font-bold mb-2">Corporate Office</h4>
-      <p>House-40, Road-5, Block-A, Banasree, Rampura, Dhaka-1219</p>
+    <h3 class="text-2xl font-semibold mb-6">Our Offices</h3>
+    <div class="grid gap-10 md:grid-cols-2">
+      <div class="office-card bg-white p-6 rounded shadow transition duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-green-50">
+        <h4 class="font-bold mb-2">Corporate Office</h4>
+        <p>House-40, Road-5, Block-A, Banasree, Rampura, Dhaka-1219</p>
+      </div>
+      <div class="office-card bg-white p-6 rounded shadow transition duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50">
+        <h4 class="font-bold mb-2">Mohanagar Office</h4>
+        <p>H-92, R-6, B-C, Mohanagar Project, Rampura, Dhaka-1219</p>
+      </div>
+      <div class="office-card bg-white p-6 rounded shadow transition duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50">
+        <h4 class="font-bold mb-2">Mirpur Office</h4>
+        <p>Plot-9 &amp; 10, Block-11, Pallabi, Mirpur, Dhaka-1216</p>
+      </div>
+      <div class="office-card bg-white p-6 rounded shadow transition duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-teal-50 hover:to-cyan-50">
+        <h4 class="font-bold mb-2">Branch Offices</h4>
+        <p class="office-list">
+          Savar (Hemayetpur), Narayanganj (Cashara), Cumilla (Monohorpur), Chattogram (Agrabad)
+        </p>
+      </div>
     </div>
-    <div class="office-card bg-white p-6 rounded shadow transition duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50">
-      <h4 class="font-bold mb-2">Mohanagar Office</h4>
-      <p>H-92, R-6, B-C, Mohanagar Project, Rampura, Dhaka-1219</p>
-    </div>
-    <div class="office-card bg-white p-6 rounded shadow transition duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50">
-      <h4 class="font-bold mb-2">Mirpur Office</h4>
-      <p>Plot-9 &amp; 10, Block-11, Pallabi, Mirpur, Dhaka-1216</p>
-    </div>
-    <div class="office-card bg-white p-6 rounded shadow transition duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-r hover:from-teal-50 hover:to-cyan-50">
-      <h4 class="font-bold mb-2">Branch Offices</h4>
-      <p class="office-list">
-        Savar (Hemayetpur), Narayanganj (Cashara), Cumilla (Monohorpur), Chattogram (Agrabad)
-      </p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Contact -->
   <section id="contact" class="max-w-4xl mx-auto px-6 py-16">
-  <h3 class="text-2xl font-semibold mb-4">Get In Touch</h3>
-  <div class="grid gap-10 md:grid-cols-2">
-    <!-- Info column -->
-    <div>
-      <p class="mb-2"><strong>CEO:</strong> Arabinda Ghosh</p>
-      <p class="mb-2">
-        <strong>Phone:</strong>
-        <a href="tel:+8801931212876" class="text-blue-600 underline">+880 1931 212876</a>,
-        <a href="tel:+8801718697830" class="text-blue-600 underline">+880 1718 697830</a>
-        <button onclick="copyText('+8801931212876')" class="ml-2 px-2 py-1 text-xs bg-gray-200 rounded">Copy</button>
-      </p>
-      <p class="mb-2">
-        <strong>Email:</strong>
-        <a href="mailto:goodwork.intertrade@gmail.com" class="text-blue-600 underline">goodwork.intertrade@gmail.com</a>
-        <button onclick="copyText('goodwork.intertrade@gmail.com')" class="ml-2 px-2 py-1 text-xs bg-gray-200 rounded">Copy</button>
-      </p>
-      <p class="mb-2"><strong>Address:</strong></p>
-      <ul class="list-disc list-inside mb-4">
-        <li>House-40, Road-5, Block-A, Banasree Rampura, Dhaka-1219</li>
-      </ul>
+    <h3 class="text-2xl font-semibold mb-4">Get In Touch</h3>
+    <div class="grid gap-10 md:grid-cols-2">
+      <!-- Info column -->
+      <div>
+        <p class="mb-2"><strong>CEO:</strong> Arabinda Ghosh</p>
+        <p class="mb-2">
+          <strong>Phone:</strong>
+          <a href="tel:+8801931212876" class="text-[var(--brand)] underline">+880 1931 212876</a>,
+          <a href="tel:+8801718697830" class="text-[var(--brand)] underline">+880 1718 697830</a>
+          <button onclick="copyText('+8801931212876')" class="ml-2 px-2 py-1 text-xs bg-gray-200 rounded">Copy</button>
+        </p>
+        <p class="mb-2">
+          <strong>Email:</strong>
+          <a href="mailto:goodwork.intertrade@gmail.com" class="text-[var(--brand)] underline">goodwork.intertrade@gmail.com</a>
+          <button onclick="copyText('goodwork.intertrade@gmail.com')" class="ml-2 px-2 py-1 text-xs bg-gray-200 rounded">Copy</button>
+        </p>
+        <p class="mb-2"><strong>Address:</strong></p>
+        <ul class="list-disc list-inside mb-4">
+          <li>House-40, Road-5, Block-A, Banasree Rampura, Dhaka-1219</li>
+        </ul>
 
-      <!-- WhatsApp quick message -->
-      <div class="space-y-2">
-        <a href="https://wa.me/8801931212876?text=Hello%20Good%20Work%20Intertrade%2C%20I%20saw%20your%20website%20and%20want%20to%20connect." target="_blank"
-           class="inline-block bg-green-500 text-white px-5 py-3 rounded font-semibold">
-          Message on WhatsApp
-        </a>
-        <div class="mt-2">
-          <a href="assets/goodwork-intertrade.vcf" download class="text-sm text-gray-700 underline">
-            Download vCard
+        <!-- WhatsApp quick message -->
+        <div class="space-y-2">
+          <a href="https://wa.me/8801931212876?text=Hello%20Good%20Work%20Intertrade%2C%20I%20saw%20your%20website%20and%20want%20to%20connect." target="_blank"
+             class="inline-block btn-brand font-semibold px-5 py-3 rounded">
+            Message on WhatsApp
           </a>
-          <span class="text-xs text-gray-500 ml-2">(Save contact to phone/address book)</span>
+          <div class="mt-2">
+            <a href="assets/goodwork-intertrade.vcf" download class="text-sm text-gray-700 underline">
+              Download vCard
+            </a>
+            <span class="text-xs text-gray-500 ml-2">(Save contact to phone/address book)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Optional short note or fallback -->
+      <div class="flex items-center">
+        <div class="bg-white p-6 rounded shadow w-full">
+          <p class="mb-4">Prefer not to fill forms? You can call, email, or WhatsApp us directly. Save our contact using the vCard link.</p>
+          <p class="text-sm text-gray-600">Fastest response via WhatsApp or phone.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Optional short note or fallback -->
-    <div class="flex items-center">
-      <div class="bg-white p-6 rounded shadow w-full">
-        <p class="mb-4">Prefer not to fill forms? You can call, email, or WhatsApp us directly. Save our contact using the vCard link.</p>
-        <p class="text-sm text-gray-600">Fastest response via WhatsApp or phone.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-function copyText(text) {
-  navigator.clipboard.writeText(text).then(() => {
-    alert('Copied: ' + text);
-  }, () => {
-    alert('Copy failed, please select and copy manually.');
-  });
-}
-</script>
-
+  <script>
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Copied: ' + text);
+      }, () => {
+        alert('Copy failed, please select and copy manually.');
+      });
+    }
+  </script>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-gray-200 py-8">
